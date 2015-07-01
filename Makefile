@@ -61,12 +61,12 @@ install_files:
 	$(LN_S) $(DATADIR)/mod.sh      $(DESTDIR)$(BINDIR)/plowmod
 	if [ -a /cygdrive/c ] ; \
 	then \
-	$(CP) $(DATADIR)/plowdel.bat /cygdrive/c/Windows/ ; \
-	$(CP) $(DATADIR)/plowdown.bat /cygdrive/c/Windows/ ; \
-	$(CP) $(DATADIR)/plowlist.bat /cygdrive/c/Windows/ ; \
-	$(CP) $(DATADIR)/plowmod.bat /cygdrive/c/Windows/ ; \
-	$(CP) $(DATADIR)/plowprobe.bat /cygdrive/c/Windows/ ; \
-	$(CP) $(DATADIR)/plowup.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowdel.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowdown.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowlist.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowmod.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowprobe.bat /cygdrive/c/Windows/ ; \
+	$(CP) src/plowup.bat /cygdrive/c/Windows/ ; \
 	fi;
 
 uninstall:
