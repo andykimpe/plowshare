@@ -12,6 +12,7 @@
 
 INSTALL  = install
 LN_S     = ln -sf
+CP     = cp
 RM       = rm -f
 GNU_SED ?= sed
 
@@ -58,6 +59,15 @@ install_files:
 	$(LN_S) $(DATADIR)/list.sh     $(DESTDIR)$(BINDIR)/plowlist
 	$(LN_S) $(DATADIR)/probe.sh    $(DESTDIR)$(BINDIR)/plowprobe
 	$(LN_S) $(DATADIR)/mod.sh      $(DESTDIR)$(BINDIR)/plowmod
+	if [ -a /cygdrive/c ] ; \
+	then \
+	$(CP) $(DATADIR)/plowdel.bat /cygdrive/c/Windows/ ; \
+	$(CP) $(DATADIR)/plowdown.bat /cygdrive/c/Windows/ ; \
+	$(CP) $(DATADIR)/plowlist.bat /cygdrive/c/Windows/ ; \
+	$(CP) $(DATADIR)/plowmod.bat /cygdrive/c/Windows/ ; \
+	$(CP) $(DATADIR)/plowprobe.bat /cygdrive/c/Windows/ ; \
+	$(CP) $(DATADIR)/plowup.bat /cygdrive/c/Windows/ ; \
+	fi;
 
 uninstall:
 	@$(RM) $(DESTDIR)$(BINDIR)/plowdown
@@ -70,6 +80,15 @@ uninstall:
 	@$(RM) $(addprefix $(DESTDIR)$(MANDIR)1/, $(MANPAGES1))
 	@$(RM) $(addprefix $(DESTDIR)$(MANDIR)5/, $(MANPAGES5))
 	@$(RM) $(addprefix $(DESTDIR)$(PREFIX)/share/bash-completion/completions/, $(MANPAGES1:%.1=%))
+	if [ -a /cygdrive/c ] ; \
+	then \
+	@$(RM) /cygdrive/c/Windows/plowdel.bat ; \
+	@$(RM) /cygdrive/c/Windows/plowdown.bat ; \
+	@$(RM) /cygdrive/c/Windows/plowlist.bat ; \
+	@$(RM) /cygdrive/c/Windows/plowmod.bat ; \
+	@$(RM) /cygdrive/c/Windows/plowprobe.bat ; \
+	@$(RM) /cygdrive/c/Windows/plowup.bat ; \
+	fi;
 
 patch_git_version: install_files
 	@v=`$(GIT_VERSION)` && \
