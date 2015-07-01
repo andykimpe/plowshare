@@ -82,12 +82,12 @@ uninstall:
 	@$(RM) $(addprefix $(DESTDIR)$(PREFIX)/share/bash-completion/completions/, $(MANPAGES1:%.1=%))
 	if [ -a /cygdrive/c ] ; \
 	then \
-	@$(RM) /cygdrive/c/Windows/plowdel.bat ; \
-	@$(RM) /cygdrive/c/Windows/plowdown.bat ; \
-	@$(RM) /cygdrive/c/Windows/plowlist.bat ; \
-	@$(RM) /cygdrive/c/Windows/plowmod.bat ; \
-	@$(RM) /cygdrive/c/Windows/plowprobe.bat ; \
-	@$(RM) /cygdrive/c/Windows/plowup.bat ; \
+	$(RM) /cygdrive/c/Windows/plowdel.bat ; \
+	$(RM) /cygdrive/c/Windows/plowdown.bat ; \
+	$(RM) /cygdrive/c/Windows/plowlist.bat ; \
+	$(RM) /cygdrive/c/Windows/plowmod.bat ; \
+	$(RM) /cygdrive/c/Windows/plowprobe.bat ; \
+	$(RM) /cygdrive/c/Windows/plowup.bat ; \
 	fi;
 
 patch_git_version: install_files
